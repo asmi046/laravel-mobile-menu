@@ -1,6 +1,6 @@
 <?php
 
-namespace AdvokatPotapova\MobileMenu\View\Components;
+namespace Asmi046\MobileMenu\View\Components;
 
 use Illuminate\View\Component;
 

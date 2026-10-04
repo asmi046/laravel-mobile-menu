@@ -1,5 +1,5 @@
 {
-    "name": "advokat-potapova/laravel-mobile-menu",
+    "name": "asmi046/laravel-mobile-menu",
     "description": "Reusable slide-in mobile menu Blade component for Laravel projects.",
     "type": "library",
     "license": "MIT",
@@ -12,8 +12,8 @@
     ],
     "authors": [
         {
-            "name": "Your Name",
-            "email": "you@example.com"
+            "name": "asmi046",
+            "email": "asmi046@gmail.com"
         }
     ],
     "require": {
@@ -27,13 +27,13 @@
     },
     "autoload": {
         "psr-4": {
-            "AdvokatPotapova\\MobileMenu\\": "src/"
+            "Asmi046\\MobileMenu\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "AdvokatPotapova\\MobileMenu\\MobileMenuServiceProvider"
+                "Asmi046\\MobileMenu\\MobileMenuServiceProvider"
             ]
         }
     },

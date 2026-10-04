@@ -1,8 +1,8 @@
 <?php
 
-namespace AdvokatPotapova\MobileMenu;
+namespace Asmi046\MobileMenu;
 
-use AdvokatPotapova\MobileMenu\View\Components\MobileMenu;
+use Asmi046\MobileMenu\View\Components\MobileMenu;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 

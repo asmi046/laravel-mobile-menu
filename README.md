@@ -18,13 +18,13 @@
         }
     ],
     "require": {
-        "advokat-potapova/laravel-mobile-menu": "@dev"
+        "asmi046/laravel-mobile-menu": "@dev"
     }
 }
 ```
 
 ```bash
-composer update advokat-potapova/laravel-mobile-menu
+composer update asmi046/laravel-mobile-menu
 php artisan vendor:publish --tag=mobile-menu-scss
 php artisan vendor:publish --tag=mobile-menu-js
 ```
@@ -36,17 +36,17 @@ php artisan vendor:publish --tag=mobile-menu-js
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/yourname/laravel-mobile-menu.git"
+            "url": "https://github.com/asmi046/laravel-mobile-menu.git"
         }
     ],
     "require": {
-        "advokat-potapova/laravel-mobile-menu": "^1.0"
+        "asmi046/laravel-mobile-menu": "^1.0"
     }
 }
 ```
 
 ```bash
-composer require advokat-potapova/laravel-mobile-menu
+composer require asmi046/laravel-mobile-menu
 php artisan vendor:publish --tag=mobile-menu-scss
 php artisan vendor:publish --tag=mobile-menu-js
 ```
@@ -67,6 +67,7 @@ ServiceProvider подхватывается автоматически чере
 ```
 
 Компонент автоматически рендерит:
+
 - `<nav>` со списком `<ul>` из `items`
 - `<div>` со ссылками phone + email
 
@@ -123,25 +124,25 @@ ServiceProvider подхватывается автоматически чере
 
 ### Пропы
 
-| Проп | Тип | По умолчанию | Описание |
-|------|-----|--------------|----------|
-| `items` | array | `[]` | Пункты меню, каждый с ключами `url` и `label` |
-| `phone` | string|null | `null` | Телефон для отображения |
-| `phoneLink` | string|null | `null` | `tel:` href (по умолчанию = `phone`) |
-| `email` | string|null | `null` | Email (рендерит `mailto:` ссылку) |
-| `id` | string | `'mobile-menu'` | DOM-id элемента `<aside>` |
-| `openLabel` | string | `'Открыть меню'` | ARIA-label в закрытом состоянии |
-| `closeLabel` | string | `'Закрыть меню'` | ARIA-label в открытом состоянии |
-| `align` | string | `'right'` | Направление выезда: `'right'` или `'left'` |
+| Проп         | Тип    | По умолчанию     | Описание                                      |
+| ------------ | ------ | ---------------- | --------------------------------------------- | ------------------------------------ |
+| `items`      | array  | `[]`             | Пункты меню, каждый с ключами `url` и `label` |
+| `phone`      | string | null             | `null`                                        | Телефон для отображения              |
+| `phoneLink`  | string | null             | `null`                                        | `tel:` href (по умолчанию = `phone`) |
+| `email`      | string | null             | `null`                                        | Email (рендерит `mailto:` ссылку)    |
+| `id`         | string | `'mobile-menu'`  | DOM-id элемента `<aside>`                     |
+| `openLabel`  | string | `'Открыть меню'` | ARIA-label в закрытом состоянии               |
+| `closeLabel` | string | `'Закрыть меню'` | ARIA-label в открытом состоянии               |
+| `align`      | string | `'right'`        | Направление выезда: `'right'` или `'left'`    |
 
 ### Слоты
 
-| Слот | Заменяет |
-|------|----------|
-| (default) | Всё содержимое меню целиком |
-| `header` | Авто-сгенерированный `<nav>` из пропа `items` |
-| `contacts` | Авто-сгенерированный блок phone/email |
-| `footer` | (нет дефолта — только добавление) |
+| Слот       | Заменяет                                      |
+| ---------- | --------------------------------------------- |
+| (default)  | Всё содержимое меню целиком                   |
+| `header`   | Авто-сгенерированный `<nav>` из пропа `items` |
+| `contacts` | Авто-сгенерированный блок phone/email         |
+| `footer`   | (нет дефолта — только добавление)             |
 
 ## Стили
 
@@ -149,7 +150,7 @@ ServiceProvider подхватывается автоматически чере
 
 ```scss
 :root {
-    --mm-color-primary: #C1AB74;
+    --mm-color-primary: #c1ab74;
     --mm-color-text: #1d1d1b;
     --mm-radius-full: 50%;
     --mm-z-burger: 500;
@@ -157,6 +158,7 @@ ServiceProvider подхватывается автоматически чере
 ```
 
 Доступные переменные:
+
 - `--mm-color-primary` — цвет бургера и акцентов
 - `--mm-color-text` — цвет текста
 - `--mm-color-white` — белый
@@ -171,6 +173,7 @@ ServiceProvider подхватывается автоматически чере
 ## JavaScript
 
 Пакет автоматически инициализируется при подключении. Никакого глобального состояния, jQuery или настройки. Биндится к элементам с data-атрибутами:
+
 - `[data-mm-toggle]` — кнопка-бургер
 - `[data-mm-overlay]` — затемняющий фон
 - `[data-mm-menu]` — элемент `<aside>` меню
