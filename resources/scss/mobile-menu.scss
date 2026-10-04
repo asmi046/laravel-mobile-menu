@@ -1,0 +1,203 @@
+/*!
+ * Laravel Mobile Menu
+ * https://github.com/yourname/laravel-mobile-menu
+ */
+
+:root {
+    --mm-color-primary: #C1AB74;
+    --mm-color-text: #1d1d1b;
+    --mm-color-white: #ffffff;
+    --mm-color-bg-light: #f5f4f3;
+    --mm-shadow: 0 6px 20px rgba(29, 29, 27, 0.25);
+    --mm-shadow-sidebar: -8px 0 24px rgba(29, 29, 27, 0.1);
+    --mm-radius-full: 50%;
+    --mm-radius-card: 20px;
+    --mm-z-overlay: 200;
+    --mm-z-menu: 300;
+    --mm-z-burger: 500;
+    --mm-transition: 0.3s ease;
+    --mm-breakpoint: 1023px;
+    --mm-width: 50%;
+    --mm-min-width: 280px;
+    --mm-max-width: 420px;
+}
+
+@media (max-width: 479px) {
+    :root {
+        --mm-width: 100%;
+    }
+}
+
+.mm-burger {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: var(--mm-z-burger);
+    width: 56px;
+    height: 56px;
+    border-radius: var(--mm-radius-full);
+    background-color: var(--mm-color-primary);
+    color: var(--mm-color-white);
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--mm-shadow);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--mm-transition), transform var(--mm-transition);
+}
+
+.mm-burger:hover,
+.mm-burger:focus-visible {
+    background-color: color-mix(in srgb, var(--mm-color-primary) 92%, black);
+}
+
+.mm-burger__icon {
+    width: 24px;
+    height: 24px;
+}
+
+.mm-burger__icon--close {
+    display: none;
+}
+
+.mm-burger[aria-expanded='true'] .mm-burger__icon--menu {
+    display: none;
+}
+
+.mm-burger[aria-expanded='true'] .mm-burger__icon--close {
+    display: block;
+}
+
+@media (max-width: 479px) {
+    .mm-burger {
+        right: 15px;
+        bottom: 15px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .mm-burger {
+        display: inline-flex;
+    }
+}
+
+.mm-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--mm-z-overlay);
+    background-color: rgba(29, 29, 27, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--mm-transition), visibility var(--mm-transition);
+}
+
+.is-mm-open .mm-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mm-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: var(--mm-width);
+    min-width: var(--mm-min-width);
+    max-width: var(--mm-max-width);
+    z-index: var(--mm-z-menu);
+    background-color: var(--mm-color-white);
+    transform: translateX(100%);
+    transition: transform var(--mm-transition);
+    overflow-y: auto;
+    padding: 30px;
+    box-shadow: var(--mm-shadow-sidebar);
+}
+
+.mm-menu--left {
+    right: auto;
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.mm-menu--left.is-mm-open-shifted {
+    transform: translateX(0);
+}
+
+.is-mm-open .mm-menu,
+.is-mm-open .mm-menu--left {
+    transform: translateX(0);
+}
+
+.mm-menu__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 100%;
+}
+
+.mm-menu__list {
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.mm-menu--left .mm-menu__list {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.mm-menu__link {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--mm-color-text);
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+    transition: color var(--mm-transition);
+}
+
+.mm-menu__link:hover,
+.mm-menu__link:focus-visible {
+    color: var(--mm-color-primary);
+}
+
+.mm-menu__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: auto;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.mm-menu--left .mm-menu__contacts {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.mm-menu__contact {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    color: var(--mm-color-text);
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.mm-menu__contact--phone {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--mm-color-primary);
+}
+
+body.is-mm-open {
+    overflow: hidden;
+}
