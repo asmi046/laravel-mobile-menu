@@ -138,6 +138,24 @@
     min-height: 100%;
 }
 
+.mm-menu__section {
+    width: 100%;
+
+    &--header {
+        margin-top: 40px;
+    }
+
+    &--contacts {
+        margin-top: auto;
+    }
+
+    &--footer {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 1px solid var(--mm-color-bg-light);
+    }
+}
+
 .mm-menu__list {
     margin: 40px 0 0;
     padding: 0;
